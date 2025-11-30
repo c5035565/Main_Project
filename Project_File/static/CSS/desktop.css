@@ -1,0 +1,201 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Ensure images scale correctly */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@font-face {
+    font-family: "Oswald Custom";
+    src: url(../Fonts/Oswald-SemiBold.ttf) format('truetype'); 
+    font-weight: 600; 
+    font-style: normal; 
+    /* Invalid margin: 0; line removed */
+}
+
+/* --- HEADER CONTAINER (Flex Parent) --- */
+
+.cantor-header { 
+    display: flex; 
+    align-items: center; /* Vertically centers all children */
+    justify-content: space-between; 
+    background-color: red; 
+    /* Consolidated and cleaned padding/margin rules */
+    padding: 20px; 
+    margin: 0;
+    min-height: 120px;
+} 
+
+/* --- LOGO GROUP (Left Column) --- */
+.logo-group {
+  
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;   /* ✅ Logo goes fully left */
+    margin-left: 0;
+
+    
+} 
+
+.logo { 
+    /* Removed padding: 20px to prevent misalignment */
+    width: 150px; 
+    height: 150px;  
+    margin-left: 0; 
+    display: block;
+   
+} 
+
+.motto { 
+    margin-top: 5px; 
+    font-size: 0.9em;
+    color: white;
+} 
+
+/* --- MAIN TITLE GROUP (Center Column) --- */
+.main-title-group {
+    flex-grow: 1; 
+    text-align: center;
+    /* Flex used to vertically center H1 inside its container */
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.text-colour { 
+    font-family: "Oswald Custom", sans-serif;
+    text-align: center; 
+    color: white; 
+    margin: 0;
+} 
+
+/* --- NAVIGATION STYLES (Right Column) --- */
+
+nav {
+    min-width: 0;
+}
+
+.nav-list { 
+    list-style: none; 
+    padding: 0; /* Cleaned padding */
+    margin: 0; 
+    display: flex; 
+    /* align-items: center; removed - redundant due to parent .cantor-header */
+    gap:40px; 
+} 
+
+.nav-list a { 
+    text-decoration: none; 
+    color: white; 
+    font-family: "Oswald Custom", sans-serif;
+    /* Added padding and border-radius for smoother hover effect */
+    
+} 
+
+.nav-list a:hover { 
+    /* Updated hover based on user's preference */
+    background-color: black; 
+    cursor: pointer;
+} 
+
+/* --- SLIDESHOW STYLES --- */
+
+.slideshow-container {
+    max-width: 1200px; 
+    position: relative;
+    margin: 30px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px;
+} 
+
+.mySlides {
+    display: none; 
+}
+
+/* Previous and Next buttons (Arrows) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -30px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 10;
+} 
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- DOTS NAVIGATION STYLES --- */
+
+.slideshow-dots { 
+    list-style: none; 
+    text-align: center; 
+    padding: 0; 
+    margin: 10px 0;
+    display: flex; 
+    justify-content: center;
+} 
+
+.dot {
+    height: 15px; 
+    width: 15px;
+    margin: 0 5px; 
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171; 
+}
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+} 
+
+.text{  
+    margin: 40;
+  text-align: center; 
+  background-color:grey;   
+  color: #f4f4f4; 
+  text-decoration:solid; 
+  font-weight: bold;
+}
+
+.footer{ 
+    text-align: center; 
+    font-weight: bold;
+}

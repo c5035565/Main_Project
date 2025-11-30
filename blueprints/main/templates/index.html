@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}  
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+
+<img src="{{ url_for('static', filename='Images/Cantor_college1.png')}}" style="width:100%">
+<div class="text">Caption Text One</div>
+</div> 
+
+<div class="mySlides fade">
+
+ <img src="{{ url_for('static', filename='Images/Cantor_college2.png')}}" style="width:100%">
+<div class="text">Caption Text One</div>  
+ </div>  
+
+ <div class="mySlides fade">
+
+ <img src="{{ url_for('static', filename='Images/Cantor_college3.png')}}" style="width:100%">
+ <div class="text">Caption Text Three</div>
+ </div>
+
+
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+ <a class="next" onclick="plusSlides(1)">❯</a> 
+
+
+
+<ul class="slideshow-dots">
+<li class="dot" onclick="currentSlide(1)"></li>
+<li class="dot" onclick="currentSlide(2)"></li>
+<li class="dot" onclick="currentSlide(3)"></li>
+</ul>
+
+</div>
+{% endblock %}

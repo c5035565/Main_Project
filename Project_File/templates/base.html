@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Cantor College{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="{{ url_for('static', filename='JS/app.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/desktop.css') }}">
+</head>
+
+<body>
+
+<header class="cantor-header">
+    <div class="logo-group">
+        <img class="logo" src="{{ url_for('static', filename='Images/logo.png') }}" alt="Cantor College Logo">
+        <h3 class="text-colour motto">Where dreams turn into reality</h3>
+    </div>
+
+    <nav>
+        <ul class="nav-list">
+            <li><a href="/">Home Page</a></li>
+            <li><a href="/register">Register Page</a></li>
+            <li><a href="/login">Login Page</a></li>
+            <li><a href="/courses">Courses</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    {% include 'partials/footer.html' %}
+</footer>
+
+</body>
+</html>
