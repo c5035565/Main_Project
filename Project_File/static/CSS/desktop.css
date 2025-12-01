@@ -198,4 +198,22 @@ nav {
 .footer{ 
     text-align: center; 
     font-weight: bold;
+} 
+.staff_Card{  
+    text-align: center;
+} 
+.flex {
+    /* 1. Activate Grid Layout for the list of cards */
+    display: grid;
+    
+    /* 2. Responsive Columns & Spacing (The key to card layout)
+       Creates columns that are a MINIMUM of 300px wide but stretch equally (1fr).
+       Cards will automatically wrap when the screen is smaller. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    
+    /* 3. Add Spacing (Gutter) Between Cards */
+    gap: 30px; 
+    
+    /* Optional: Center the content inside the grid area */
+    justify-content: center;
 }

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 101,
+    "name": "Dr. Eleanor Vance",
+    "role": "Head of Computing Department",
+    "department": "Computing & Engineering",
+    "phone": "0114 555 1001",
+    "email": "e.vance@cantor.edu",
+    "profile_image": "images/staff/eleanor_vance.jpg"
+  },
+  {
+    "id": 102,
+    "name": "Prof. Marcus Chen",
+    "role": "Senior Lecturer in Cyber Security",
+    "department": "Computing & Engineering",
+    "phone": "0114 555 1002",
+    "email": "m.chen@cantor.edu",
+    "profile_image": "images/staff/marcus_chen.jpg"
+  },
+  {
+    "id": 103,
+    "name": "Ms. Sarah Davies",
+    "role": "Admissions Officer",
+    "department": "Student Services",
+    "phone": "0114 555 2005",
+    "email": "s.davies@cantor.edu",
+    "profile_image": "images/staff/sarah_davies.jpg"
+  },
+  {
+    "id": 104,
+    "name": "Dr. Amir Khan",
+    "role": "Course Leader - Design & Media",
+    "department": "Design & Networking",
+    "phone": "0114 555 1004",
+    "email": "a.khan@cantor.edu",
+    "profile_image": "images/staff/amir_khan.jpg"
+  }
+]

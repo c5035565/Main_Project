@@ -1,13 +1,32 @@
 from flask import Flask
-from blueprints.main import main as main_blueprint
 from datetime import datetime
 
-app = Flask(__name__)
-app.register_blueprint(main_blueprint)
+# CRITICAL FIX: Explicitly reference the 'Project_File' folder as the package root
+from blueprints.main.routes import main as main_blueprint 
 
-@app.context_processor
-def inject_globals():
-    return {'current_year': datetime.now().year}
+# The Application Factory Function
+def create_app():
+    # --- APPLICATION SETUP ---
+    app = Flask(__name__) 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    # --- CONFIGURATION ---
+    # Set a strong secret key for session security in a real application
+    app.config['SECRET_KEY'] = 'your_strong_secret_key' 
+
+    # --- REGISTRATION ---
+    # Register the Blueprint with the main application instance
+    app.register_blueprint(main_blueprint, url_prefix='/')
+
+    # --- GLOBAL CONTEXT ---
+    @app.context_processor
+    def inject_globals():
+        # This makes 'current_year' available to ALL templates automatically
+        return {'current_year': datetime.now().year}
+    
+    return app # Return the configured application instance
+
+# --- EXECUTION ---
+if __name__ == '__main__': 
+    # When running locally, call the factory and run the app
+    app = create_app()
+    app.run(host='127.0.0.1', port=5000, debug=True)
