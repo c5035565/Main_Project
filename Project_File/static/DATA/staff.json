@@ -6,7 +6,7 @@
     "department": "Computing & Engineering",
     "phone": "0114 555 1001",
     "email": "e.vance@cantor.edu",
-    "profile_image": "images/staff/eleanor_vance.jpg"
+    "profile_image": "Images/staff/eleanor_vance.jpg"
   },
   {
     "id": 102,
@@ -15,7 +15,7 @@
     "department": "Computing & Engineering",
     "phone": "0114 555 1002",
     "email": "m.chen@cantor.edu",
-    "profile_image": "images/staff/marcus_chen.jpg"
+    "profile_image": "Images/staff/marcus_chen.jpg"
   },
   {
     "id": 103,
@@ -24,15 +24,51 @@
     "department": "Student Services",
     "phone": "0114 555 2005",
     "email": "s.davies@cantor.edu",
-    "profile_image": "images/staff/sarah_davies.jpg"
+    "profile_image": "Images/staff/sarah_davies.jpg"
   },
   {
     "id": 104,
     "name": "Dr. Amir Khan",
     "role": "Course Leader - Design & Media",
-    "department": "Design & Networking",
+    "department": "Creative Arts",
     "phone": "0114 555 1004",
     "email": "a.khan@cantor.edu",
-    "profile_image": "images/staff/amir_khan.jpg"
+    "profile_image": "Images/staff/amir_khan.jpg"
+  },
+  {
+    "id": 105,
+    "name": "Prof. Olivia Reed",
+    "role": "Head of Faculty",
+    "department": "Administration",
+    "phone": "0114 555 0001",
+    "email": "o.reed@cantor.edu",
+    "profile_image": "Images/staff/olivia_reed.jpg"
+  },
+  {
+    "id": 106,
+    "name": "Mr. Ben Carter",
+    "role": "Network Administrator",
+    "department": "Computing & Engineering",
+    "phone": "0114 555 1006",
+    "email": "b.carter@cantor.edu",
+    "profile_image": "Images/staff/ben_carter.jpg"
+  },
+  {
+    "id": 107,
+    "name": "Ms. Chloe Miller",
+    "role": "Student Support Advisor",
+    "department": "Student Services",
+    "phone": "0114 555 2007",
+    "email": "c.miller@cantor.edu",
+    "profile_image": "Images/staff/chloe_miller.jpg"
+  },
+  {
+    "id": 108,
+    "name": "Dr. David Jones",
+    "role": "Lecturer in Digital Media",
+    "department": "Creative Arts",
+    "phone": "0114 555 1008",
+    "email": "d.jones@cantor.edu",
+    "profile_image": "Images/staff/david_jones.jpg"
   }
 ]
