@@ -1,7 +1,9 @@
 from flask import Flask, render_template, Blueprint, current_app, request
 import os 
 import json    
-from datetime import datetime
+from datetime import datetime 
+from config import db_config
+import mysql.connector
 
 
 
@@ -47,6 +49,9 @@ def json_filtered():
     with open(json_path) as f:
         staff_data = json.load(f)
 
+    # Add this (you forgot it)
+    departments = sorted({s['department'] for s in staff_data})
+
     department_filter = request.args.get('department', '').strip().lower()
 
     if department_filter:
@@ -56,34 +61,55 @@ def json_filtered():
     else:
         filtered_data = staff_data
 
-    return render_template('filtered_staff.html', staffData=filtered_data, selected=department_filter)
+    return render_template(
+        'filtered_staff.html',
+        staffData=filtered_data,
+        departments=departments,   # FIXED
+        selected=department_filter
+    )
 
 @main.route('/json_dropdown', methods=['GET'])
 def json_dropdown():
-    json_path = os.path.join(os.path.dirname(__file__), 'data', 'staff.json')
+    json_path = os.path.join(current_app.static_folder, 'data/staff.json')
     with open(json_path) as f:
         staff_data = json.load(f)
 
-   
     departments = sorted({s['department'] for s in staff_data})
 
-  
-    selected_department = request.args.get('department')
+    department_filter = request.args.get('department', '').strip().lower()
 
-    
-    if selected_department:
+    # Filter if a department is selected
+    if department_filter:
         filtered_data = [
-            s for s in staff_data if s['department'].lower() == selected_department.lower()
+            s for s in staff_data if s['department'].strip().lower() == department_filter
         ]
     else:
-        filtered_data = staff_data
+        filtered_data = staff_data  
 
     return render_template(
-        'json_dropdown.html',
+        'filtered_staff.html',
         staffData=filtered_data,
         departments=departments,
-        selected=selected_department
-    )
+        selected=department_filter
+    )  
+@main.route('/aboutUs') 
+def aboutUs(): 
+    return render_template('about_us.html')
+
+@main.route('/courses')
+def db_data():
+    # Establish database connection
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM courses")
+    data = cursor.fetchall()
+    cursor.close()
+    conn.close() 
+
+
+    
+    
+    return render_template('db_data.html', data=data)
 
 
 

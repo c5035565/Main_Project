@@ -1,0 +1,31 @@
+{% extends "base.html" %}  
+
+
+ {% block title %} About Cantor College   {% endblock %} 
+ {% block content %}    
+ <div class = "container"> 
+    <header class= "Aboutus-header"> 
+        <h1> Life in cantor college </h2> 
+            <p>Pioneering the future through practical education and digital innovation.</p> 
+        </section> 
+        <section class = "mission-section"> 
+            <h2 >Our mission</h2> 
+            <p >Cantor College is dedicated to providing career-focused, high-quality education that prepares students to meet the demands of the modern, rapidly evolving professional world. We focus on fostering critical thinking, practical skills, and a global perspective to empower our graduates to become leaders in their fields.</p>
+    </section> 
+    <section class="history-section">
+        <h2>A Brief History</h2>
+        <p>Founded in 2025, Cantor College began with a focus on Technology, creativty, engineering and finance it has grown into a comprehensive institution known for its strong links to industry and its commitment to real-world learning.</p>
+        <p>Today, we continue that tradition by constantly updating our courses to reflect the latest industry standards, ensuring our curriculum remains practical and relevant.</p>
+    </section>
+    
+    <footer class="about-footer">
+        <p>Wanna find us?<a href="{{ url_for('main.aboutUs') }}">Find_us</a></p>
+    </footer>
+</div>
+{% endblock %}
+
+ 
+
+
+
+

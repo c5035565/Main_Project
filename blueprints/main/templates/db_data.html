@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+
+
+{% block content %} 
+ {% block title %}<h2 class = "courses-title"> All courses offered </h2> {% endblock %} 
+
+
+ <hr>  
+ {% if data %}
+    <div class = "courses-container"> 
+        {% for course in data %} 
+        <div class = "courses-card"> 
+            <div class = "courses-card-header"> 
+                <h3> {{course.course_name}}</h3> 
+            </div>  
+            <div class = "courses-card-body"> 
+                <p class="course-level">**Level:** {{ course.course_level }}</p>
+                    <p class="course-duration">**Duration:** {{ course.duration_years }} years</p>
+                    <hr>
+                    <p class="course-description">{{ course.course_description }}</p>
+                </div>
+             </div>
+            {% endfor %}
+    
+{% else %}
+    <p>No courses found in the database.</p>
+{% endif %} 
+
+{% endblock %}

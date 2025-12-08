@@ -1,0 +1,6 @@
+set PYTHONPATH=%PYTHONPATH%;Project_File 
+set FLASK_APP=Project_File.app:create_app  
+flask run
+
+
+//please run this files there is a thing where python thinks main_project folder is just plain folder that a package this runs the server 

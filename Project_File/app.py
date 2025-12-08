@@ -4,17 +4,13 @@ from datetime import datetime
 # CRITICAL FIX: Explicitly reference the 'Project_File' folder as the package root
 from blueprints.main.routes import main as main_blueprint 
 
-# The Application Factory Function
+
 def create_app():
     # --- APPLICATION SETUP ---
     app = Flask(__name__) 
 
-    # --- CONFIGURATION ---
-    # Set a strong secret key for session security in a real application
-    app.config['SECRET_KEY'] = 'your_strong_secret_key' 
+   
 
-    # --- REGISTRATION ---
-    # Register the Blueprint with the main application instance
     app.register_blueprint(main_blueprint, url_prefix='/')
 
     # --- GLOBAL CONTEXT ---

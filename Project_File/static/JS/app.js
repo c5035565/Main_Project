@@ -31,4 +31,13 @@ function showSlides(n) {
 
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
+} 
+
+
+function filterforstaff(){
+  "use strict";
+
+  document.getElementById("department").addEventListener("change", function () {
+    document.getElementById("filter-form").submit();
+  });
 }

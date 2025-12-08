@@ -216,4 +216,82 @@ nav {
     
     /* Optional: Center the content inside the grid area */
     justify-content: center;
+} 
+
+.footer-config{ 
+
+    padding: 30px;
+}  
+
+.courses-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold; 
+    text-align: center;
+}
+.courses-card-header{ 
+    text-align: center; 
+    font-weight: bold;
+}
+.courses-container{ 
+
+    display: grid; 
+
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 20px;
+} 
+
+.course_card{ 
+    border: 1px solid; 
+    box-shadow: #333; 
+    transition: transform 0.3s ease; 
+    text-align: center;
+} 
+
+.course-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.card-header {
+    background-color: #007bff; /* A prominent color for the title */
+    color: white;
+    padding: 15px;
+    text-align: center;
+}  
+.card-header h3 {
+    margin: 0; 
+    font-size: 1.5em;
+}
+
+.card-body {
+    padding: 15px; 
+    text-align: center; 
+    font-weight: bold;
+} 
+
+.course-level, .course-duration {
+    margin-bottom: 5px;
+    font-size: 1em; 
+    text-align: center;
+}
+
+.course-description {
+    font-size: 0.9em;
+    color: #555;
+    max-height: 100px; 
+    overflow: hidden;
+    margin-top: 10px; 
+    text-align: center;
+} 
+
+
+.Aboutus-header{  
+    text-align: center; 
+    text-decoration:solid;  
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 20px;
+
+
 }

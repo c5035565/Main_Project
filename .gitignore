@@ -415,4 +415,8 @@ FodyWeavers.xsd
 *.msi
 *.msix
 *.msm
-*.msp
+*.msp 
+
+#ignore these files below
+.env
+.env.local

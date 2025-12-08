@@ -1,0 +1,8 @@
+I need to make an aboutr us page 
+need to make a register and login page make it finctional and everything 
+apply styling and accesibilty features  
+Where to find us page 
+Learning material page 
+Top student filter list 
+do some cleaning up of the course page 
+

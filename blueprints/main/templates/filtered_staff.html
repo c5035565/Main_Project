@@ -5,37 +5,33 @@
 {% block content %}
 <h1>Staff Members</h1>
 
-<!-- Corrected form structure -->
-<form method="get" action="{{ url_for('main.staffdata') }}">
+<form id="filter-form" method="get" action="{{ url_for('main.json_filtered') }}">
   <label for="department">Filter by Department:</label>
-  <select name="department" id="department">
-    <option value="">Select Department</option>
-    {% for department in departments %}
-      <option value="{{ department }}" {% if department == selected %}selected{% endif %}>{{ department }}</option>
+  <select name="department" id="department-filter" onchange="this.form.submit()" >
+    <option value="">All Departments</option>
+    {% for dept in departments %}
+      <option value="{{ dept }}" {% if dept == selected %}selected{% endif %}>{{ dept }}</option>
     {% endfor %}
   </select>
   <button type="submit">Filter</button>
 </form>
 
 {% if selected %}
-<p>Showing results for department: <strong>{{ selected }}</strong></p>
+  <p>Showing results for department: <strong>{{ selected }}</strong></p>
 {% endif %}
 
-<div>
-  <div class="flex">
-    {% for staff in staffData %}
+<div class="flex">
+  {% for staff in staffData %}
     <div class="card">
-      <img src="{{ staff.profile_image }}" alt="{{ staff.name }}" width="100">
       {% for key, value in staff.items() %}
-        {% if key != "profile_image" %}
-          <div><strong>{{ key | title }}:</strong> {{ value }}</div>
-        {% endif %}
+        <div><strong>{{ key | title }}:</strong> {{ value }}</div>
       {% endfor %}
     </div>
-    {% else %}
+  {% else %}
     <p>No results found.</p>
-    {% endfor %}
-  </div>
+  {% endfor %}
 </div>
-
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 {% endblock %}
