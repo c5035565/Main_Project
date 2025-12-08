@@ -68,6 +68,9 @@ def json_filtered():
         selected=department_filter
     )
 
+@main.route('/findUs.html') 
+def findUs(): 
+    return render_template('findUs.html')
 @main.route('/json_dropdown', methods=['GET'])
 def json_dropdown():
     json_path = os.path.join(current_app.static_folder, 'data/staff.json')

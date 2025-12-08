@@ -28,7 +28,7 @@ img {
     display: flex; 
     align-items: center; /* Vertically centers all children */
     justify-content: space-between; 
-    background-color: red; 
+    background-color: #0a437c; 
     /* Consolidated and cleaned padding/margin rules */
     padding: 20px; 
     margin: 0;
@@ -90,21 +90,26 @@ nav {
     margin: 0; 
     display: flex; 
     /* align-items: center; removed - redundant due to parent .cantor-header */
-    gap:40px; 
+    gap:40px;  
+
 } 
+
+
 
 .nav-list a { 
     text-decoration: none; 
-    color: white; 
-    font-family: "Oswald Custom", sans-serif;
+    color: goldenrod; 
+    font-family: "Oswald Custom", sans-serif; 
+    
     /* Added padding and border-radius for smoother hover effect */
     
 } 
 
 .nav-list a:hover { 
     /* Updated hover based on user's preference */
-    background-color: black; 
-    cursor: pointer;
+    /* background-color: rgb(0, 0, 0);  */
+    color: white;
+    cursor: pointer;   
 } 
 
 /* --- SLIDESHOW STYLES --- */
