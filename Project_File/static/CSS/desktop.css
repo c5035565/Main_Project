@@ -1,5 +1,6 @@
 
-body {
+body { 
+    
     margin: 0;
     padding: 0;
     width: 100%;
@@ -26,13 +27,17 @@ img {
 
 .cantor-header { 
     display: flex; 
-    align-items: center; /* Vertically centers all children */
+    align-items: center; 
     justify-content: space-between; 
     background-color: #0a437c; 
-    /* Consolidated and cleaned padding/margin rules */
     padding: 20px; 
     margin: 0;
-    min-height: 120px;
+    min-height: 120px;  
+    flex-wrap: nowrap; 
+    width: 100%; 
+    box-sizing: border-box; 
+   
+     
 } 
 
 /* --- LOGO GROUP (Left Column) --- */
@@ -48,8 +53,8 @@ img {
 
 .logo { 
     /* Removed padding: 20px to prevent misalignment */
-    width: 150px; 
-    height: 150px;  
+    width: 100px; 
+    height: auto;  
     margin-left: 0; 
     display: block;
    
@@ -85,12 +90,13 @@ nav {
 }
 
 .nav-list { 
-    list-style: none; 
-    padding: 0; /* Cleaned padding */
-    margin: 0; 
+   list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    /* Make the list items sit in a single row */
     display: flex; 
-    /* align-items: center; removed - redundant due to parent .cantor-header */
-    gap:40px;  
+    gap: 15px;
 
 } 
 
@@ -99,7 +105,9 @@ nav {
 .nav-list a { 
     text-decoration: none; 
     color: goldenrod; 
-    font-family: "Oswald Custom", sans-serif; 
+    font-family: "Oswald Custom", sans-serif;  
+    font-size: 0.9em; 
+    white-space: nowrap;
     
     /* Added padding and border-radius for smoother hover effect */
     
@@ -110,7 +118,29 @@ nav {
     /* background-color: rgb(0, 0, 0);  */
     color: white;
     cursor: pointer;   
+}  
+
+.mainNav{ 
+    display: flex;
+    align-items: center;
+    
+    
+    flex-shrink: 1;
+    
+    
+    gap: 20px;
 } 
+.searchContainer input[type="text"] {
+    width: 150px; /* Keep the search bar narrow */
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+
+
 
 /* --- SLIDESHOW STYLES --- */
 
@@ -289,14 +319,42 @@ nav {
     margin-top: 10px; 
     text-align: center;
 } 
+/*------- About us Page-------------- */
+.aboutus-grid { 
+    display: grid; 
+    
+    /* Defines the structure: 2 columns */
+    grid-template-areas:
+        "header header"
+        "mission content"; 
+        
+    /* Defines the column widths: Mission is narrow, Content is wide */
+    grid-template-columns: 1fr 3fr; 
+    
+    gap: 30px; 
+    background-color: rgb(211, 211, 211);
+    padding: 30px; 
+    
+    /* Adds space below the gray box */
+    margin-bottom: 50px; 
+} 
 
+/* --- GRID AREA ASSIGNMENTS --- */
+.aboutus-header {
+    grid-area: header;
+}
 
-.Aboutus-header{  
-    text-align: center; 
-    text-decoration:solid;  
-    max-width: 1000px; 
-    margin: 0 auto; 
-    padding: 20px;
+.mission-grid { 
+    grid-area: mission;
+    padding: 0;
+} 
 
+.content-area { 
+    grid-area: content;
+}
 
+/* --- FOOTER --- */
+.about-footer {
+    margin-top: 30px; 
+    text-align: center;
 }
