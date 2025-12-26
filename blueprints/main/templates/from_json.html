@@ -4,7 +4,9 @@
 {% block content %}
 <h1>Staff Members</h1>
 <div>
-  <h2>Staff Details</h2>
+  <h2>Staff Details</h2>  
+  <a class ="footer-config"href="{{ url_for('main.json_filtered') }}">Meet our staff members</a>
+  <a>
   <div class="flex">
     {% for staff in staffData %}
       <div class="card">

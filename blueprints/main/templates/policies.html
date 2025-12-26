@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="policy-page">
+    <div class="policy-header">
+        <h1>College Policies & Legal</h1>
+        <p>Essential documents for students, staff, and visitors at Cantor College.</p>
+    </div>
+
+    <div class="policy-grid">
+        <div class="policy-card">
+            <h3>Student & Resource Policies</h3>
+            <ul>
+                <li>
+                    <a href="{{ url_for('static', filename='documents/library_rules.pdf') }}" target="_blank">
+                        Library and Resource Centre Rules (PDF)
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('static', filename='documents/computing_rules.pdf') }}" target="_blank">
+                        Computing Facilities Usage Policy (PDF)
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="policy-card">
+            <h3>Academic Policies</h3>
+            <ul>
+                <li><a href="#">Admissions Policy</a></li>
+                <li><a href="#">Assessment Guidelines</a></li>
+            </ul>
+        </div>
+
+        {% if session.get('user_name') %}
+        <div class="policy-card staff-accent">
+            <h3>Staff Resources</h3>
+            <ul>
+                <li><a href="#">Staff Handbook</a></li>
+                <li><a href="#">Health and Safety</a></li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

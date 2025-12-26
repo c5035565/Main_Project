@@ -21,18 +21,26 @@
    
 
 
-    <nav class = "mainNav"> 
-        <div class = "searchContainer"> 
+<nav class="mainNav"> 
+    <div class="searchContainer"> 
         <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"> 
-        </div>
-        <ul class="nav-list">
-            <li><a href="/">Home Page</a></li>
-            <li><a href="/register">Register Page</a></li>
-            <li><a href="/login">Login Page</a></li>
-            <li><a href="/courses">Courses</a></li> 
-            <li><a href="/aboutUs">About us</a></li>
-        </ul>
-    </nav> 
+    </div>
+    <ul class="nav-list">
+        <li><a href="/">Home Page</a></li>
+        <li><a href="/courses">Courses</a></li> 
+        <li><a href="/aboutUs">About us</a></li>
+
+        {% if session.get('user_name') %}
+            <li><a href="/json_filtered">Staff Directory</a></li> 
+            <li> <a href="/policies"> Policies and Guidelines</a></li>
+            <li><a href="/logout">Logout ({{ session['user_name'] }})</a></li> 
+
+        {% else %}
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        {% endif %}
+    </ul>
+</nav>
 
     
 </header>

@@ -40,4 +40,8 @@ function filterforstaff(){
   document.getElementById("department").addEventListener("change", function () {
     document.getElementById("filter-form").submit();
   });
-}
+} 
+
+
+
+

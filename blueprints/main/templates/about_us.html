@@ -2,28 +2,69 @@
 
 
  {% block title %} About Cantor College   {% endblock %} 
- {% block content %}    
- <div class="aboutus-grid">
-    <div class="aboutus-header">
-        <h1>Life in cantor college</h1>
-        <p>Pioneering the future through practical education and digital innovation.</p>
+ {% block content %}   
+ <div class="aboutus-subheader"> 
+    <img   src="{{ url_for('static', filename='Images/Courses_Images/Business.png') }}" alt="Business_course">
+    <div class="aboutus-text">   
+        <section>
+        <h4>Pioneering the future of education </h4> 
+        
+
+        <p>
+Established with a vision for excellence, Cantor College has been at the forefront of technical education for decades. We specialize in bridging the gap between academic theory and real-world application.
+Whether you are diving into Computing, Creative Media, or Business Technology, our state-of-the-art facilities and dedicated staff provide the perfect environment to turn your passion into a career.  
+Here, we don't just teach the future—we build it.</p> 
+        </section>
     </div>
 
-    <div class="mission-grid">
-        <h2>Our mission</h2>
-        <p>Cantor College is dedicated to providing...</p>
-    </div>
+   
 
-    <div class="content-area">
-        <h3>A Brief History</h3>
-        </div>
+    </div>  
+</div> 
 
-    </div> 
+
+<div class="Our-mission">    
 
     
-    <footer class="about-footer">
-        <p>Wanna find us?<a href="{{ url_for('main.aboutUs') }}">Find_us</a></p>
-    </footer>
+    <div class="image-column">
+        <div class="image-card">
+            <img src="{{ url_for('static', filename='Images/ourMission.jpg') }}" 
+                 alt="Our Mission">
+        </div>
+    </div>
+
+    
+    <div class="mission-text">  
+        <section>
+        <h4>Our mission</h4>   
+        <p>
+            At Cantor College, our mission is to provide a transformative educational experience
+            that prepares students to lead in an ever-evolving digital landscape.
+            We are dedicated to fostering an environment where innovation, creativity,
+            and practical skills converge.
+            By combining industry-standard technology with expert mentorship,
+            we ensure our graduates are not just ready for the workforce,
+            but equipped to shape the future of their chosen fields.
+            We believe in the power of inclusive education to unlock potential
+            and drive social and economic progress.
+        </p> 
+    </section>
+    </div>
+
+</div> 
+<div class = "Contact">    
+    <section>
+       <script 
+    src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=maps,marker" 
+    defer></script>
+        <p>Wanna find us?<a href="{{ url_for('main.aboutUs') }}">Find_us</a></p> 
+    </section> 
+   
+</div>
+
+
+    
+    
 
 {% endblock %}
 

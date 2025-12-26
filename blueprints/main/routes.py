@@ -1,9 +1,12 @@
-from flask import Flask, render_template, Blueprint, current_app, request
-import os 
+from flask import Flask, render_template, Blueprint, current_app, request,redirect,session,flash
+import os  
+import re
 import json    
 from datetime import datetime 
 from config import db_config
-import mysql.connector
+import mysql.connector 
+from dotenv import load_dotenv 
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
@@ -28,20 +31,117 @@ staff_data = [
 @main.route('/')
 def home(): 
     
-    return render_template('index.html', name = 'Home')
+    return render_template('index.html', name = 'Home')   
 
-@main.route('/login')  
-def login():
+
+@main.route('/policies') 
+def policies(): 
+    return render_template('policies.html', name = 'Policies')
+
+
+
+
+
+
+@main.route ('/register', methods = ['GET', 'POST']) 
+def register():   
+    if request.method == 'POST':
+        first_name = request.form.get('first_name') 
+        last_name = request.form.get('last_name') 
+        username = request.form.get('username') 
+        email = request.form.get('email') 
+        password = request.form.get('password')  
+        confirm_password = request.form.get('password_confirmation')  
+
+        email_pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        if not re.match(email_pattern, email):
+            return render_template('register.html', error="Please enter a valid email address.", name='Register')
+        
+
+        if password != confirm_password: 
+            return render_template('register.html', error ="Password must do not match!", name = 'Register')  
+        
+        if len(password)< 8: 
+            return render_template('register.html', error="Password must be at least 8 characters long.", name='Register')  
+        
+        if not any(char.isdigit() for char in password):
+            return render_template('register.html', error="Password must include at least one number.", name='Register')
+
+        
+        if not any(char.isupper() for char in password):
+            return render_template('register.html', error="Password must include at least one uppercase letter.", name='Register') 
+        
+        hashed_password = generate_password_hash(password)  
+
+
+    
+        try:
+            db = mysql.connector.connect( 
+            host = os.getenv("MYSQL_HOST"), 
+            user = os.getenv("MYSQL_USER"), 
+            password = os.getenv("MYSQL_PASSWORD"),  
+            database = os.getenv("MYSQL_DB") 
+
+    ) 
+            cursor = db.cursor()  
+            sql = "INSERT INTO users (Username, Email, password_hash, first_name, last_name) VALUES (%s, %s, %s, %s, %s)"
+            values = (username, email, hashed_password, first_name, last_name) 
+
+            cursor.execute(sql,values) 
+            db.commit() 
+            db.close()   
+            return render_template('register.html', success="Account created successfully!", name='Register') 
+            
+        
+        except mysql.connector.Error as err: 
+           
+            if err.errno == 1062:
+                return render_template('register.html', error="That email or username is already registered.")
+            else:
+                return render_template('register.html', error="A database error occurred.")
+
+    return render_template('register.html', name = 'Register')
+
+@main.route('/login', methods=['GET', 'POST'])  
+def login(): 
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password') 
+
+        db = mysql.connector.connect( 
+            host = os.getenv("MYSQL_HOST"), 
+            user = os.getenv("MYSQL_USER"), 
+            password = os.getenv("MYSQL_PASSWORD"),  
+            database = os.getenv("MYSQL_DB") 
+        ) 
+        cursor = db.cursor(dictionary=True) 
+
+        cursor.execute("SELECT * FROM users WHERE Username = %s", (username,)) 
+        user = cursor.fetchone() 
+        db.close() 
+
+        if user and check_password_hash(user['password_hash'], password):   
+            session['user_name'] = user['first_name']
+            return redirect(('/'))
+        else:
+           return render_template('Login.html', error="Invalid username or password.")
+
     return render_template('Login.html', name = 'Login')    
+
+@main.route('/logout') 
+def logout(): 
+    session.clear() 
+    return redirect(('/')) 
 
 
 @main.route('/staffdata')
-def staffdata():
+def staffdata(): 
+    if 'user_name' not in session: 
+        return redirect(('/login'))   
     json_path = os.path.join(current_app.static_folder, 'data/staff.json')
     with open(json_path) as f:
         staff_data = json.load(f)
     return render_template('from_json.html', staffData=staff_data)
-
 
 @main.route('/json_filtered', methods=['GET'])
 def json_filtered():
@@ -70,7 +170,11 @@ def json_filtered():
 
 @main.route('/findUs.html') 
 def findUs(): 
-    return render_template('findUs.html')
+    return render_template('findUs.html') 
+
+
+
+
 @main.route('/json_dropdown', methods=['GET'])
 def json_dropdown():
     json_path = os.path.join(current_app.static_folder, 'data/staff.json')
@@ -96,8 +200,9 @@ def json_dropdown():
         selected=department_filter
     )  
 @main.route('/aboutUs') 
-def aboutUs(): 
-    return render_template('about_us.html')
+def aboutUs():  
+    api_key = os.getenv("API_KEY")
+    return render_template('about_us.html', api_key=api_key)
 
 @main.route('/courses')
 def db_data():
