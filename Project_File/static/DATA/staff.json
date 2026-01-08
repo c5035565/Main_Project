@@ -5,8 +5,7 @@
     "role": "Head of Computing Department",
     "department": "Computing & Engineering",
     "phone": "0114 555 1001",
-    "email": "e.vance@cantor.edu",
-    "profile_image": "Images/staff/eleanor_vance.jpg"
+    "email": "e.vance@cantor.edu"
   },
   {
     "id": 102,
@@ -14,8 +13,7 @@
     "role": "Senior Lecturer in Cyber Security",
     "department": "Computing & Engineering",
     "phone": "0114 555 1002",
-    "email": "m.chen@cantor.edu",
-    "profile_image": "Images/staff/marcus_chen.jpg"
+    "email": "m.chen@cantor.edu"
   },
   {
     "id": 103,
@@ -23,8 +21,7 @@
     "role": "Admissions Officer",
     "department": "Student Services",
     "phone": "0114 555 2005",
-    "email": "s.davies@cantor.edu",
-    "profile_image": "Images/staff/sarah_davies.jpg"
+    "email": "s.davies@cantor.edu"
   },
   {
     "id": 104,
@@ -32,8 +29,7 @@
     "role": "Course Leader - Design & Media",
     "department": "Creative Arts",
     "phone": "0114 555 1004",
-    "email": "a.khan@cantor.edu",
-    "profile_image": "Images/staff/amir_khan.jpg"
+    "email": "a.khan@cantor.edu"
   },
   {
     "id": 105,
@@ -41,8 +37,7 @@
     "role": "Head of Faculty",
     "department": "Administration",
     "phone": "0114 555 0001",
-    "email": "o.reed@cantor.edu",
-    "profile_image": "Images/staff/olivia_reed.jpg"
+    "email": "o.reed@cantor.edu"
   },
   {
     "id": 106,
@@ -50,8 +45,7 @@
     "role": "Network Administrator",
     "department": "Computing & Engineering",
     "phone": "0114 555 1006",
-    "email": "b.carter@cantor.edu",
-    "profile_image": "Images/staff/ben_carter.jpg"
+    "email": "b.carter@cantor.edu"
   },
   {
     "id": 107,
@@ -59,8 +53,7 @@
     "role": "Student Support Advisor",
     "department": "Student Services",
     "phone": "0114 555 2007",
-    "email": "c.miller@cantor.edu",
-    "profile_image": "Images/staff/chloe_miller.jpg"
+    "email": "c.miller@cantor.edu"
   },
   {
     "id": 108,
@@ -68,7 +61,6 @@
     "role": "Lecturer in Digital Media",
     "department": "Creative Arts",
     "phone": "0114 555 1008",
-    "email": "d.jones@cantor.edu",
-    "profile_image": "Images/staff/david_jones.jpg"
+    "email": "d.jones@cantor.edu"
   }
 ]

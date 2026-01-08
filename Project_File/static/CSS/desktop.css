@@ -9,27 +9,26 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Ensure images scale correctly */
+
 img {
     max-width: 100%;
     height: auto;
 }
 
 @font-face {
-    font-family: "Oswald Custom";
-    src: url(../Fonts/Oswald-SemiBold.ttf) format('truetype'); 
-    font-weight: 600; 
-    font-style: normal; 
-    /* Invalid margin: 0; line removed */
+  font-family: 'Oswald';
+  src: url('/Fonts/Oswald-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* --- HEADER CONTAINER (Flex Parent) --- */
 
 .cantor-header { 
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    background-color: #0a437c; 
+     background-color: #0b3c5d;
     padding: 20px; 
     margin: 0;
     min-height: 120px;  
@@ -40,19 +39,18 @@ img {
      
 } 
 
-/* --- LOGO GROUP (Left Column) --- */
 .logo-group {
   
     display: flex;
     flex-direction: column; 
-    align-items: flex-start;   /* ✅ Logo goes fully left */
+    align-items: flex-start;   
     margin-left: 0;
 
     
 } 
 
 .logo { 
-    /* Removed padding: 20px to prevent misalignment */
+   
     width: 100px; 
     height: auto;  
     margin-left: 0; 
@@ -63,14 +61,14 @@ img {
 .motto { 
     margin-top: 5px; 
     font-size: 0.9em;
-    color: white;
+    color: #ffffff;
 } 
 
-/* --- MAIN TITLE GROUP (Center Column) --- */
+
 .main-title-group {
     flex-grow: 1; 
     text-align: center;
-    /* Flex used to vertically center H1 inside its container */
+    
     display: flex;
     flex-direction: column;
    
@@ -79,11 +77,11 @@ img {
 .text-colour { 
     font-family: "Oswald Custom", sans-serif;
     text-align: center; 
-    color: white; 
+    color: #ffffff;
     margin: 0;
 } 
 
-/* --- NAVIGATION STYLES (Right Column) --- */
+
 
 nav {
     min-width: 0;  
@@ -111,13 +109,13 @@ nav {
     font-size: 0.9em; 
     white-space: nowrap;
     
-    /* Added padding and border-radius for smoother hover effect */
+
     
 } 
 
 .nav-list a:hover { 
   
-    color: white;
+    color: #ffffff;
     cursor: pointer;   
 }  
 
@@ -132,7 +130,7 @@ nav {
     gap: 20px;
 } 
 .searchContainer input[type="text"] {
-    width: 150px; /* Keep the search bar narrow */
+    width: 150px; 
     padding: 8px 10px;
     border: none;
     border-radius: 5px;
@@ -140,10 +138,37 @@ nav {
 
 
 
+/* Mobile Optimizations */
+
+@media screen and (max-width: 800px) {
+    .cantor-header {
+        flex-direction: column;
+        min-height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .logo-group {
+        align-items: center; 
+        text-align: center;
+    }
+
+    .mainNav {
+        flex-direction: column; 
+        width: 100%;
+        gap: 15px;
+    }
+
+    .nav-list {
+        justify-content: center; /* Centers links */
+        gap: 10px;
+    }
+
+ 
+}
 
 
 
-/* --- SLIDESHOW STYLES --- */
 
 .slideshow-container {
     max-width: 1200px; 
@@ -154,11 +179,10 @@ nav {
     border-radius: 8px;
 } 
 
-.mySlides {
-    display: none; 
-}
+.mySlides { display: none; }
+.mySlides:first-child { display: block ; }
 
-/* Previous and Next buttons (Arrows) */
+
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -225,7 +249,7 @@ nav {
 .text{  
     margin: 40;
   text-align: center; 
-  background-color:grey;   
+  background-color:#0b3c5d; 
   color: #f4f4f4; 
   text-decoration:solid; 
   font-weight: bold;
@@ -239,18 +263,16 @@ nav {
     text-align: center;
 } 
 .flex {
-    /* 1. Activate Grid Layout for the list of cards */
+   
     display: grid;
     
-    /* 2. Responsive Columns & Spacing (The key to card layout)
-       Creates columns that are a MINIMUM of 300px wide but stretch equally (1fr).
-       Cards will automatically wrap when the screen is smaller. */
+  
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     
-    /* 3. Add Spacing (Gutter) Between Cards */
+    
     gap: 30px; 
     
-    /* Optional: Center the content inside the grid area */
+ 
     justify-content: center;
 } 
 
@@ -286,11 +308,11 @@ nav {
 } 
 
 .course-card:hover {
-    transform: translateY(-5px); /* Lift the card slightly */
+    transform: translateY(-5px); 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .card-header {
-    background-color: #007bff; /* A prominent color for the title */
+    background-color: #007bff; 
     color: white;
     padding: 15px;
     text-align: center;
@@ -320,9 +342,9 @@ nav {
     margin-top: 10px; 
     text-align: center;
 } 
-/*------- About us Page-------------- */ 
 
 
+/* about us */
  
 .aboutus-text{ 
     text-align: center; 
@@ -380,7 +402,7 @@ align-items: center;
 
 .image-card { 
     width: 100%;
-    max-width: 450px;     /* keeps it reasonable */
+    max-width: 450px;     
     border-radius: 20px; 
     overflow: hidden; 
 }
@@ -410,12 +432,76 @@ gap: 20px;
     font-weight: bold;
     padding: 30px;
 
-    display: flex;              /* 👈 REQUIRED */
+    display: flex;             
     flex-direction: column;
     justify-content: center;
 
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+} 
+
+.cantor-footer-info {
+    background-color: #f4f4f4; 
+    border-top: 1px solid #ddd;
+    padding: 40px 20px;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.orange-strip-container {
+    background-color: orange; 
+    padding: 60px 20px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.location-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.location-card h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.location-subtext {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.accent-line {
+    border: 0;
+    border-top: 2px solid orange;
+    width: 50px;
+    margin: 20px auto;
+}
+
+.contact-details p {
+    margin: 12px 0;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Mobile responsive fix */
+@media screen and (max-width: 600px) {
+    .orange-strip-container {
+        padding: 30px 15px;
+    }
+    .location-card {
+        padding: 25px 15px;
+    }
 }
 
 
@@ -434,20 +520,24 @@ gap: 20px;
 
 /* --------Register page-------- */ 
 
-.register-container{  
+.register-container {  
     text-align: center; 
     font-weight: bold;   
-    padding: 150px 120px;
+ 
+    padding: 60px 5%; 
+    display: flex;
     justify-content: center; 
     background-color: orange;
+    min-height: 100vh; 
+}
 
-
-} 
-
-.register-box{ 
-background-color: white; 
-padding: 50px;
-}   
+.register-box { 
+    background-color: white; 
+    padding: 30px; 
+    width: 100%;
+    max-width: 450px; 
+    border-radius: 8px;
+}
 
 
 .password-requirements {

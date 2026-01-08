@@ -6,8 +6,8 @@
 <h1>Staff Members</h1>
 
 <form id="filter-form" method="get" action="{{ url_for('main.json_filtered') }}">
-  <label for="department">Filter by Department:</label>
-  <select name="department" id="department-filter" onchange="this.form.submit()" >
+  <label for="department-filter">Filter by Department:</label>
+  <select name="department" id="department-filter" onchange="this.form.submit()">
     <option value="">All Departments</option>
     {% for dept in departments %}
       <option value="{{ dept }}" {% if dept == selected %}selected{% endif %}>{{ dept }}</option>

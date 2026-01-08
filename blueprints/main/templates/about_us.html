@@ -4,7 +4,7 @@
  {% block title %} About Cantor College   {% endblock %} 
  {% block content %}   
  <div class="aboutus-subheader"> 
-    <img   src="{{ url_for('static', filename='Images/Courses_Images/Business.png') }}" alt="Business_course">
+    <img   src="{{ url_for('static', filename='Images/Courses_Images/Business.webp') }}" alt="Business_course">
     <div class="aboutus-text">   
         <section>
         <h4>Pioneering the future of education </h4> 
@@ -28,7 +28,7 @@ Here, we don't just teach the future—we build it.</p>
     
     <div class="image-column">
         <div class="image-card">
-            <img src="{{ url_for('static', filename='Images/ourMission.jpg') }}" 
+            <img src="{{ url_for('static', filename='Images/ourMission.webp' ) }}" 
                  alt="Our Mission">
         </div>
     </div>
@@ -52,14 +52,19 @@ Here, we don't just teach the future—we build it.</p>
     </div>
 
 </div> 
-<div class = "Contact">    
-    <section>
-       <script 
-    src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=maps,marker" 
-    defer></script>
-        <p>Wanna find us?<a href="{{ url_for('main.aboutUs') }}">Find_us</a></p> 
-    </section> 
-   
+
+    <div class="orange-strip-container">
+    <div class="location-card">
+        <h3>Cantor College</h3>
+        <p class="location-subtext">Sheffield, United Kingdom</p>
+        <hr class="accent-line">
+        
+        <div class="contact-details">
+            <p><strong>Main Campus:</strong> 123 Education Way, Sheffield, S1 4XX</p>
+            <p><strong>General Inquiries:</strong> <a href="mailto:info@cantorcollege.ac.uk">info@cantorcollege.ac.uk</a></p>
+            <p><strong>Admissions:</strong> 0114 225 5555</p>
+        </div>
+    </div>
 </div>
 
 

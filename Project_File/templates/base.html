@@ -4,8 +4,10 @@
     <title>{% block title %}Cantor College{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Cantor College offers world-class courses in Computer Science, Graphic Design, and Business. Explore our facilities and start your career today.">
 
-    <script src="{{ url_for('static', filename='JS/app.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='JS/app.js') }}" ></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/desktop.css') }}">
 </head>
 
@@ -14,40 +16,32 @@
 <header class="cantor-header">
     <div class="logo-group"> 
         <a href="{{url_for ('main.home')}}">
-        <img class="logo" src="{{ url_for('static', filename='Images/logo.png') }}" alt="Cantor College Logo">
+            <img class="logo" src="{{ url_for('static', filename='Images/logo.webp') }}" alt="Cantor College Logo">
         </a> 
-         <h3 class="text-colour motto">Where dreams turn into reality</h3>
+        <h3 class="text-colour motto">Where dreams turn into reality</h3>
     </div>  
-   
 
+    <nav class="mainNav"> 
+        <ul class="nav-list">
+            <li><a href="/">Home Page</a></li>
+            <li><a href="/courses">Courses</a></li> 
+            <li><a href="/aboutUs">About us</a></li>
 
-<nav class="mainNav"> 
-    <div class="searchContainer"> 
-        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"> 
-    </div>
-    <ul class="nav-list">
-        <li><a href="/">Home Page</a></li>
-        <li><a href="/courses">Courses</a></li> 
-        <li><a href="/aboutUs">About us</a></li>
-
-        {% if session.get('user_name') %}
-            <li><a href="/json_filtered">Staff Directory</a></li> 
-            <li> <a href="/policies"> Policies and Guidelines</a></li>
-            <li><a href="/logout">Logout ({{ session['user_name'] }})</a></li> 
-
-        {% else %}
-            <li><a href="/register">Register</a></li>
-            <li><a href="/login">Login</a></li>
-        {% endif %}
-    </ul>
-</nav>
-
-    
+            {% if session.get('user_name') %}
+                <li><a href="/json_filtered">Staff Directory</a></li> 
+                <li><a href="/policies">Policies and Guidelines</a></li>
+                <li><a href="/logout">Logout ({{ session['user_name'] }})</a></li> 
+            {% else %}
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
 </header>
 
-<div class="main-content">
+<main id="main-content" class="main-content">
     {% block content %}{% endblock %}
-</div>
+</main>
 
 <footer>
     {% include 'partials/footer.html' %}
