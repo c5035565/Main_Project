@@ -149,7 +149,7 @@ def json_filtered():
     with open(json_path) as f:
         staff_data = json.load(f)
 
-    # Add this (you forgot it)
+   
     departments = sorted({s['department'] for s in staff_data})
 
     department_filter = request.args.get('department', '').strip().lower()
